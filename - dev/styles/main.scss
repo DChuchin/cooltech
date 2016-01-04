@@ -1,0 +1,39 @@
+@import "compass";
+
+/* --------- normalize --------- */
+
+@import "_misc/normalize";
+
+/*-----------fonts-------------*/
+
+@import "_misc/_fonts.scss";
+
+/* --------- mixins --------- */
+
+@import "_misc/mixins";
+
+/* --------- adjustment --------- */
+
+@import "_misc/adjustment";
+
+/*-----------misc-icons sprite----------*/
+
+$misc-sprite: sprite-map('icons/_misc/*.png', $spacing: 70px);
+
+/*-----------------common colors--------------*/
+
+$black: #333333;
+$orange: #ff6e35;
+$gray: #dee1e4;
+
+/*----------sections------------*/
+
+@import "_sections/_header";
+@import "_sections/_nav";
+@import "_sections/_breadcrumbs";
+@import "_sections/_content";
+@import "_sections/_sidebar";
+@import "_sections/_attention";
+@import "_sections/_footer";
+
+
