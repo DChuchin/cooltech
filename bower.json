@@ -1,0 +1,21 @@
+{
+  "name": "cooltech",
+  "description": "",
+  "main": "gulpfile.js",
+  "authors": [
+    "Dima Chuhin <dime10cents@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/DChuchin/cooltech",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery-ui": "~1.11.4"
+  }
+}

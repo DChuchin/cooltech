@@ -26,14 +26,18 @@ $black: #333333;
 $orange: #ff6e35;
 $gray: #dee1e4;
 
+/*------------- plugins -----------------*/
+
+@import "_plugins/**/*";
+
+/*--------------- widgets -------------------*/
+
+@import "_widgets/**/*";
+
 /*----------sections------------*/
 
-@import "_sections/_header";
-@import "_sections/_nav";
-@import "_sections/_breadcrumbs";
-@import "_sections/_content";
-@import "_sections/_sidebar";
-@import "_sections/_attention";
-@import "_sections/_footer";
+@import "_sections/**/*";
+
+
 
 
