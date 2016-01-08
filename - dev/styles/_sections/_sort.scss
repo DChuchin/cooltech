@@ -71,6 +71,13 @@ $items: rows, grids, lines;
 				@include get-sprite($views-map, $hover-icon);
 			}
 		}
+		&.active {
+			$active-icon: $item + '-active';
+
+			.sort__view-icon {
+				@include get-sprite($views-map, $active-icon);
+			}
+		}
 	}
 }
 

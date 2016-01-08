@@ -32,7 +32,7 @@
 									.filter__choose-elem
 									.filter__choose-text= item
 					.filter__reset-wrap
-						a(href="#").filter__reset Сбросить фильтр
+						a(href="#").filter__reset.filter__reset_brands Сбросить фильтр
 				li.filter__item
 					.filter__title
 						a(href="#").filter__title-link Цена
@@ -55,7 +55,7 @@
 							each color in colors
 								li.filter__colors-item
 									a(href="#" style="background-color: #" + color).filter__colors-link
-				li.filter__item
+				li.filter__item.filter__item_os
 					.filter__title
 						a(href="#").filter__title-link Операционные системы
 					.filter__content
@@ -68,5 +68,5 @@
 										.filter__choose-elem
 										.filter__choose-text= item
 						.filter__reset-wrap
-							a(href="#").filter__reset Сбросить фильтр
+							a(href="#").filter__reset.filter__reset_os Сбросить фильтр
 
