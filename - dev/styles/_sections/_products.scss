@@ -47,7 +47,7 @@
 	@include border-radius(3px);
 }
 
-.prducts__slideshow-img {
+.products__slideshow-img {
 	display: block;
 	max-width: 95%;
 	max-height: 95%;
@@ -62,20 +62,31 @@
 .products__slideshow-item {
 	margin-left: 15px;
 	float: left;
-}
 
-.products__slideshow-link {
-	@extend .products__slideshow-display;
-	width: 34px;
-	height: 34px;
-	@include border-radius(3px);
-	margin-bottom: 0;
-	position: relative;
+	.products__slideshow-link {
+		@extend .products__slideshow-display;
+		width: 34px;
+		height: 34px;
+		@include border-radius(3px);
+		margin-bottom: 0;
+		position: relative;
 
-	&:hover {
-		border-color: $orange;
+		&:hover {
+			border-color: $orange;
+		}
+	}
+
+	&.active {
+		.products__slideshow-link {
+			outline: none;
+			border-color: $orange;
+			box-shadow:  0 0 5px 0 $orange;
+		}	
 	}
 }
+
+
+
 
 .products__slideshow-thumbs-img {
 	display: block;

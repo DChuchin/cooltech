@@ -134,12 +134,12 @@ $socials-map: sprite-map('icons/socials/*.png', $spacing: 70px);
 	@include border-radius(5px);
 	padding: 8px 15px;
 	width: 259px;
-	margin-right: -7px;
+	margin-right: -8px;
 }
 
 .search__form-submit {
 	width: 78px;
-	height: 36px;
+	height: 35px;
 	background:$orange;
 	color: #ffffff;
 	@include open-sans(semibold);

@@ -30,7 +30,7 @@ block content
 								ul.sort__view-list
 									-var items = ['rows', 'grids', 'lines']
 									each item in items
-										li(class="sort__view-item sort__view_" + item data-view= item)
+										li(class="sort__view-item sort__view_" + item + ((item == "rows") ? ' ' + ' active' : '')  data-view= item)
 											a(href="#").sort__view-link
 												.sort__view-icon
 					.products
@@ -42,12 +42,12 @@ block content
 											.products__slideshow
 												.products__slideshow-block
 													a(href="#").products__slideshow-display
-														img(src="img/products/samsung.png" alt="samsung").prducts__slideshow-img
+														img(src="img/products/samsung1big.png" alt="samsung").products__slideshow-img
 													ul.products__slideshow-thumbs
-														- for (var j = 0; j < 3; j++)
-															li.products__slideshow-item
+														- for (var j = 1; j <= 3; j++)
+															li(class="products__slideshow-item" + ((j == 1) ? ' ' + ' active' : ''))
 																a(href="#").products__slideshow-link
-																	img(src="img/products/samsung-small1.png", alt="").products__slideshow-thumbs-img
+																	img(src="img/products/samsung" + j + ".png", alt="").products__slideshow-thumbs-img
 												.products__article
 													.products__article-word Артикул
 													.products__article-num 123456

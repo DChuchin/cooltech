@@ -17,6 +17,10 @@
 .sort__select {
 	@include inlineblock(middle);
 }
+.sort__select-wrap {
+	padding-top: 11px;
+	padding-left: 20px;
+}
 
 .sort__left {
 	float: left;
@@ -63,13 +67,6 @@ $items: rows, grids, lines;
 	.sort__view_#{$item} {
 		.sort__view-icon {
 			@include get-sprite($views-map, $item);
-		}
-		&:hover {
-			$hover-icon: $item + '-active';
-
-			.sort__view-icon {
-				@include get-sprite($views-map, $hover-icon);
-			}
 		}
 		&.active {
 			$active-icon: $item + '-active';

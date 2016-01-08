@@ -1,19 +1,40 @@
 var sliderWidget = (function(){
 
 	function init () {
+		var 
+			min = parseInt($('.filter__slider-element').attr('data-min')),
+			max = parseInt($('.filter__slider-element').attr('data-max')),
+			minConvert = String(min).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ') + ' руб',
+			maxConvert = String(max).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ') + ' руб'; 
+		
+		$('.filter__slider-input_from').val(minConvert);
+		$('.filter__slider-input_to').val(maxConvert);
 		$( ".filter__slider-element" ).slider({
-      	range: true,
-      	min: 0,
-      	max: 500,
-      	values: [ 75, 300 ],
-      	slide: function( event, ui ) {
-        	$( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+      		range: true,
+      		min: min,
+      		max: max,
+      		values: [min, max],
+      		step: 50,
+      		slide: function() {
+        		_insertValues ();
       	}
     	});
-    	$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+    	// $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+     //  " - $" + $( "#slider-range" ).slider( "values", 1 ) );
 
 	};
+
+	function _insertValues () {
+		var
+			from = $('.filter__slider-input_from'),
+			to = $('.filter__slider-input_to'),
+			values = $(".filter__slider-element").slider('option', 'values');
+			min = String(values[0]).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ') + ' руб',
+			max = String(values[1]).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ') + ' руб';
+			from.val(min);
+			to.val(max);
+
+	} 
 	return {
 		init: init
 	}
@@ -88,19 +109,61 @@ var filterReset = (function(){
 
 })();
 
-var gallery = (function () {
+var slideShow = (function () {
 
 	function init () {
 		_setUpListeners ();
 	};
 
 	function _setUpListeners () {
-		$('.products__slideshow-item').click(_changePic);
+		$('.products__slideshow-link').click(_changePic);
 	};
 
-	function _changePic () {
-		console.log('ты нажал на картинку');
+	function _changePic (e) {
+		e.preventDefault();
+		$(this).closest('.products__slideshow-item').addClass('active').siblings().removeClass('active');
+		var 
+			container = $(this).closest('.products__slideshow'),
+			path = $(this).find('img').attr('src').replace(".png","big.png"),
+			display = container.find('.products__slideshow-img');
+			
+		 	$(display).attr('src', path);
+		
 	}
+
+	return {
+		init: init
+	};
+
+})();
+
+
+var accordeon = (function () {
+
+	function init () {
+		_setUpListeners ();
+	};
+
+	function _setUpListeners () {
+		$('.filter__title').on('click', _openSection);
+	};
+
+	function _openSection (e) {
+		e.preventDefault();
+
+		var
+			container = $(this).closest('.filter__item'),
+			content = container.find('.filter__content');
+
+		if (!container.hasClass('active')) {
+			container.addClass('active');
+			content.stop(true, true).slideDown();
+		} else {
+			container.removeClass('active');
+			content.stop(true,true).slideUp();
+		}
+	}
+
 
 	return {
 		init: init
@@ -111,11 +174,31 @@ var gallery = (function () {
 
 
 
+
 $(document).ready(function() {
 	sliderWidget.init();
 	changeViews.init();
 	filterReset.init();
-	gallery.init();
+	slideShow.init();
+	accordeon.init();
+	$('.sort__select-elem').select2({
+		minimumResultsForSearch: Infinity
+	});
+	$('.filter__colors-link').click(function (e) {
+		e.preventDefault();
+
+		var 
+			item = $(this).closest('.filter__colors-item');
+		
+		if (item.hasClass('active')) {
+			item.removeClass('active');
+		} else {
+			item.addClass('active');
+		}
+	});
+	$('.attention__text').columnize({
+		width: 530
+	});
 });
 
 
