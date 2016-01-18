@@ -37,6 +37,10 @@ $socials-map: sprite-map('icons/socials/*.png', $spacing: 70px);
 	.socials__item_#{$social} {
 		.socials__icon {
 			@include get-sprite($socials-map, $social);
+
+			&:hover {
+				@include get-sprite($socials-map, $social + '-hover');
+			}
 		}
 	}
 }
@@ -47,13 +51,16 @@ $socials-map: sprite-map('icons/socials/*.png', $spacing: 70px);
 }
 
 .header__right {
-	width: 50%;
+	width: 43%;
 	float: right;
 }
 
 .address {
 	@include inlineblock(middle);
-	margin-right: 65px;
+	margin-right: 89px;
+	@include open-sans(regular);
+	font-size: 14px;
+	line-height: 16px;
 
 	&:before {
 		content: '';
@@ -67,7 +74,9 @@ $socials-map: sprite-map('icons/socials/*.png', $spacing: 70px);
 	@include inlineblock(middle);
 	color: $black;
 	text-decoration: none;
-	margin-right: 25px;
+	@include open-sans(semibold);
+	font-size: 18px;
+	line-height: 20px;
 
 	&:before {
 		content: '';

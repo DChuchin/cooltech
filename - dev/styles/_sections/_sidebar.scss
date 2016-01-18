@@ -157,6 +157,33 @@
 }
 
 /*----------------checkboxes---------------*/
+// .filter__choose_checkboxes {
+
+
+// 	.filter__choose-elem:hover {
+// 		width: 20px;
+// 		height: 20px;
+// 		@include border-radius(4px);
+// 		background: $gray;
+// 		@include transition(.2s);
+// 		border: 0 none;
+
+// 		&:after {
+// 			content: '';
+// 			display: block;
+// 			@include absolute-center;
+// 			opacity: 1;
+// 			@include transition(.2s);
+// 			@include get-sprite($misc-sprite, check-hover);
+// 			@include border-radius(0);
+// 			width: 13px !important;
+// 			height: 10px !important;
+
+
+// 		}
+// 	}
+// }
+
 
 .filter__choose_checkboxes {
 	.filter__choose-input {
@@ -165,6 +192,7 @@
 
 			&:after {
 				opacity: 1;
+				
 			}
 		}
 	}
@@ -187,9 +215,10 @@
 			@include border-radius(0);
 			width: 13px !important;
 			height: 10px !important;
-
+ 
 
 		}
+
 	}
 }
 
