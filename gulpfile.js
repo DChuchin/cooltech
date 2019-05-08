@@ -109,6 +109,8 @@ gulp.task('watch', function(){
 	gulp.watch(paths.browserSync.watchPaths).on('change', browserSync.reload);
 });
 
+gulp.task('build', ['jade', 'compass', 'plugins', 'scripts']);
+
 /* --------- default --------- */
 
 gulp.task('default', ['jade', 'compass', 'plugins', 'scripts', 'sync', 'watch']);
